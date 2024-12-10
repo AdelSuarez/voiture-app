@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
 const List<String> groups = <String>[
+  'Ninguno',
   'Grupo 1',
   'Grupo 2',
   'Grupo 3',
-  'Ninguno'
 ];
-const List<String> types = <String>['Carro', 'Moto', 'Barco', 'Ninguno'];
+const List<String> types = <String>[
+  'Ninguno',
+  'Carro',
+  'Moto',
+  'Barco',
+  'Maquinaria',
+];
 
 class NewVehicle extends StatelessWidget {
   const NewVehicle({super.key});
@@ -95,6 +101,7 @@ class _DropdownMenu extends StatelessWidget {
           child: DropdownButtonFormField(
             isExpanded: true,
             dropdownColor: Colors.white,
+            value: items.first,
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,

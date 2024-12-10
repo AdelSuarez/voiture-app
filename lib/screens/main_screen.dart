@@ -34,11 +34,13 @@ class MainScreen extends StatelessWidget {
         index: navigationBarProvider.currentIndex,
         children: views,
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.pushNamed(context, 'new_car');
+          Navigator.pushNamed(context, 'new_vehicle');
         },
-        child: const Icon(Icons.add),
+        label: Text(navigationBarProvider
+            .typoButton[navigationBarProvider.currentIndex]),
+        icon: const Icon(Icons.add),
       ),
     );
   }

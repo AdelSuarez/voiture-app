@@ -10,9 +10,9 @@ class GroupView extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'about_group_car');
+              Navigator.pushNamed(context, 'about_group_vehicle');
             },
-            child: ListTile(
+            child: const ListTile(
               title: Text('Group 1'),
               subtitle: Text('Description 1'),
               leading: Icon(Icons.group),

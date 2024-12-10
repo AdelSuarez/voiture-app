@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home',
       routes: {
         'home': (context) => const MainScreen(),
-        'new_car': (context) => const NewVehicle(),
-        'about_car': (context) => const AboutCarScreen(),
-        'about_group_car': (context) => const AboutGroupCarScreen(),
+        'new_vehicle': (context) => const NewVehicle(),
+        'about_vehicle': (context) => const AboutVehicleScreen(),
+        'about_group_vehicle': (context) => const AboutGroupCarScreen(),
       },
       theme: AppTheme.lightTheme,
     );

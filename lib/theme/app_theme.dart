@@ -61,5 +61,14 @@ class AppTheme {
         ),
       ),
     ),
+
+    /// Define the listTile theme.
+    listTileTheme: const ListTileThemeData(
+      subtitleTextStyle: TextStyle(color: Colors.grey),
+    ),
+
+    dialogTheme: const DialogTheme(
+      backgroundColor: Colors.white,
+    ),
   );
 }
