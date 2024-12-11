@@ -16,16 +16,18 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
-      // backgroundColor: Colors.white,
       centerTitle: true,
+      scrolledUnderElevation: 0,
     ),
 
     /// Define the bottom navigation bar theme.
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       elevation: 0,
       backgroundColor: Colors.white,
       selectedItemColor: primaryColor,
-      unselectedItemColor: Colors.grey,
+      unselectedItemColor: Colors.grey[800],
+      selectedLabelStyle:
+          const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
     ),
 
     /// Define the floating action button theme.
@@ -69,6 +71,19 @@ class AppTheme {
 
     dialogTheme: const DialogTheme(
       backgroundColor: Colors.white,
+    ),
+
+    /// Define the text button theme.
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        backgroundColor: WidgetStateProperty.all<Color>(primaryColor),
+        foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+      ),
     ),
   );
 }

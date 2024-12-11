@@ -45,6 +45,48 @@ class HomeView extends StatelessWidget {
             vehicleMileageKm: '11.500',
             typeVehicle: 'machine',
           ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
+          ItemVehicle(
+            group: 'Armenia',
+            title: 'Tracker',
+            vehicleMileageKm: '11.500',
+            typeVehicle: 'machine',
+          ),
         ],
       ),
     );

@@ -10,12 +10,18 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navigationBarProvider = Provider.of<NavigationBarProvider>(context);
+    final navigationCurrentIndex = navigationBarProvider.currentIndex;
+
     final views = <Widget>[
       const HomeView(),
       const GroupView(),
     ];
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.account_circle),
+          onPressed: () {},
+        ),
         title: const Text(
           'VoitureApp',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -27,6 +33,13 @@ class MainScreen extends StatelessWidget {
         //     height: 1.0,
         //   ),
         // ),
+
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
       ),
       bottomNavigationBar:
           _NavigationBar(navigationBarProvider: navigationBarProvider),
@@ -36,10 +49,10 @@ class MainScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.pushNamed(context, 'new_vehicle');
+          Navigator.pushNamed(
+              context, navigationBarProvider.getRoute(navigationCurrentIndex));
         },
-        label: Text(navigationBarProvider
-            .typoButton[navigationBarProvider.currentIndex]),
+        label: Text(navigationBarProvider.routes[navigationCurrentIndex]?[0]),
         icon: const Icon(Icons.add),
       ),
     );

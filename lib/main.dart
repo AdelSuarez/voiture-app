@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home',
       routes: {
         'home': (context) => const MainScreen(),
-        'new_vehicle': (context) => const NewVehicle(),
+        'new_vehicle': (context) => const NewVehicleScreen(),
+        'new_group': (context) => const NewGroupScreen(),
         'about_vehicle': (context) => const AboutVehicleScreen(),
         'about_group_vehicle': (context) => const AboutGroupCarScreen(),
       },

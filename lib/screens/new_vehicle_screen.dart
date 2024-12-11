@@ -14,8 +14,8 @@ const List<String> types = <String>[
   'Maquinaria',
 ];
 
-class NewVehicle extends StatelessWidget {
-  const NewVehicle({super.key});
+class NewVehicleScreen extends StatelessWidget {
+  const NewVehicleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,59 +24,62 @@ class NewVehicle extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Nuevo Vehículo'),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Nombre',
+      body: Column(
+        children: [
+          const Expanded(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Nombre',
+                    ),
                   ),
-                ),
-                SizedBox(height: height),
-                Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          labelText: 'KM / NM',
+                  SizedBox(height: height),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            labelText: 'KM / HRS',
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Año',
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Año',
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: height),
-                _DropdownMenu(title: 'Tipo de Vehículo:', items: types),
-                SizedBox(height: height),
-                _DropdownMenu(
-                  title: 'Grupos:',
-                  items: groups,
-                ),
-              ],
+                    ],
+                  ),
+                  SizedBox(height: height),
+                  _DropdownMenu(title: 'Tipo de Vehículo:', items: types),
+                  SizedBox(height: height),
+                  _DropdownMenu(
+                    title: 'Grupos:',
+                    items: groups,
+                  ),
+                ],
+              ),
             ),
-            ElevatedButton(
-                onPressed: () {},
-                child: const SizedBox(
-                  width: double.infinity,
-                  child: Center(
-                      child: Text(
-                    'Guardar',
-                    style: TextStyle(fontSize: 18),
-                  )),
-                )),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: TextButton(
+              onPressed: () {},
+              child: const Center(
+                  child: Text(
+                'Guardar',
+                style: TextStyle(fontSize: 18),
+              )),
+            ),
+          ),
+        ],
       ),
     );
   }
