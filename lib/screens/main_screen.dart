@@ -52,7 +52,7 @@ class MainScreen extends StatelessWidget {
           Navigator.pushNamed(
               context, navigationBarProvider.getRoute(navigationCurrentIndex));
         },
-        label: Text(navigationBarProvider.routes[navigationCurrentIndex]?[0]),
+        label: Text(navigationBarProvider.getRouteName(navigationCurrentIndex)),
         icon: const Icon(Icons.add),
       ),
     );

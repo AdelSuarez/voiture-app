@@ -7,10 +7,10 @@ class AboutGroupCarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Group Car'),
+        title: Text('Grupo 1'),
       ),
       body: Center(
-        child: Text('About Group Car'),
+        child: Text('Informacion del grupo 1'),
       ),
     );
   }

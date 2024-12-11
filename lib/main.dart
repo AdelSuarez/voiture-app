@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manager_car/providers/navigation_bar_provider.dart';
+import 'package:manager_car/providers/providers.dart';
 import 'package:manager_car/screens/screens.dart';
 import 'package:manager_car/theme/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +15,11 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => NavigationBarProvider(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => VehiclesProvider(),
+          lazy: false,
         ),
       ],
       child: const MyApp(),

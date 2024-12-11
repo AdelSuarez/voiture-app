@@ -46,10 +46,10 @@ class HomeView extends StatelessWidget {
             typeVehicle: 'machine',
           ),
           ItemVehicle(
-            group: 'Armenia',
             title: 'Tracker',
             vehicleMileageKm: '11.500',
             typeVehicle: 'machine',
+            isWarning: true,
           ),
           ItemVehicle(
             group: 'Armenia',
