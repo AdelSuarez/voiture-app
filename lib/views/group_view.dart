@@ -15,7 +15,7 @@ class GroupView extends StatelessWidget {
             child: const ListTile(
               title: Text('Group 1'),
               subtitle: Text('Description 1'),
-              leading: Icon(Icons.group),
+              leading: Icon(Icons.bike_scooter),
               trailing: Icon(Icons.arrow_forward_ios),
             ),
           ),

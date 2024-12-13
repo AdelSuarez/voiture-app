@@ -42,8 +42,13 @@ class MyApp extends StatelessWidget {
         'new_group': (context) => const NewGroupScreen(),
         'about_vehicle': (context) => const AboutVehicleScreen(),
         'about_group_vehicle': (context) => const AboutGroupCarScreen(),
+        'profile': (context) => const ProfileScreen(),
+        'log_screen': (context) => const LogScreen(),
+        'new_detail': (context) => const NewDetailScreen(),
+        'detail_screen': (context) => const DetailScreen(),
       },
       theme: AppTheme.lightTheme,
+      themeMode: ThemeMode.system,
     );
   }
 }

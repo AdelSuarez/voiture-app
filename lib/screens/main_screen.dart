@@ -20,7 +20,9 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.account_circle),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'profile');
+          },
         ),
         title: const Text(
           'VoitureApp',

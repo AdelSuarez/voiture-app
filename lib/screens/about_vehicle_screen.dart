@@ -16,9 +16,7 @@ class AboutVehicleScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {
-              print('Edit');
-            },
+            onPressed: () {},
             icon: Icon(Icons.edit, color: Colors.grey[600]),
           ),
           IconButton(
@@ -33,8 +31,10 @@ class AboutVehicleScreen extends StatelessWidget {
             },
           ),
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.app_registration_rounded, color: Colors.grey[600]),
+            onPressed: () {
+              Navigator.pushNamed(context, 'log_screen');
+            },
+            icon: Icon(Icons.table_rows_rounded, color: Colors.grey[600]),
           ),
           const SizedBox(width: 8),
         ],
@@ -44,7 +44,7 @@ class AboutVehicleScreen extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: const Text('Hilux sadasdasdasdasdasdasdasdasd',
+              child: const Text('Hilux',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             ),
@@ -65,13 +65,21 @@ class AboutVehicleScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Row(
-                        children: [
-                          Text('Grupo:',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          SizedBox(width: 15),
-                          Text('Casa 14.5'),
-                        ],
+                      const Expanded(
+                        child: Row(
+                          children: [
+                            Text('Grupo:',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            SizedBox(width: 15),
+                            Expanded(
+                              child: Text(
+                                'Casa 14.5',
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       IconButton(
                         style: ButtonStyle(
@@ -110,7 +118,7 @@ class AboutVehicleScreen extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 context: context,
                                 builder: (context) {
-                                  return const _NewTag();
+                                  return _NewTag();
                                 });
                           },
                           icon: const Icon(Icons.add_circle_outline)),
@@ -155,11 +163,13 @@ class AboutVehicleScreen extends StatelessWidget {
                   type: 'servicio',
                   description:
                       'Exercitation aute anim do ea mollit officia in labore nostrud dis sit voluptate.Labore dolor pariatur laboris mollit dolore cupidatat culpa proident nisi laboris fugiat.',
+                  isPhoto: true,
                 ),
                 _OperationDetail(
                   title: 'Reparacion de Motor',
                   date: '01/01/2025',
                   type: 'reparacion',
+                  isPhoto: false,
                 ),
                 _OperationDetail(
                   title: 'Limpieza Interior',
@@ -167,6 +177,7 @@ class AboutVehicleScreen extends StatelessWidget {
                   type: 'mantenimiento',
                   description:
                       'Exercitation aute anim do ea mollit officia in labore nostrud dis sit voluptate.Labore dolor pariatur laboris mollit dolore cupidatat culpa proident nisi laboris fugiat.',
+                  isPhoto: false,
                 ),
               ],
             ),
@@ -174,8 +185,10 @@ class AboutVehicleScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        label: const Text('Nuevo Ticket'),
+        onPressed: () {
+          Navigator.pushNamed(context, 'new_detail');
+        },
+        label: const Text('Nuevo detalle'),
         icon: const Icon(Icons.add),
       ),
     );
@@ -216,12 +229,14 @@ class _OperationDetail extends StatelessWidget {
   final String date;
   final String? description;
   final String type;
+  final bool isPhoto;
 
   const _OperationDetail({
     required this.title,
     required this.date,
     required this.type,
     this.description = '',
+    required this.isPhoto,
   });
 
   @override
@@ -234,7 +249,7 @@ class _OperationDetail extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        print('test');
+        Navigator.pushNamed(context, 'detail_screen');
       },
       child: Container(
         decoration: BoxDecoration(
@@ -268,6 +283,7 @@ class _OperationDetail extends StatelessWidget {
             Text(description!, overflow: TextOverflow.ellipsis, maxLines: 4),
           const SizedBox(height: 8),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
@@ -275,7 +291,9 @@ class _OperationDetail extends StatelessWidget {
                   const SizedBox(width: 8),
                   Text(type, style: const TextStyle(color: Colors.grey))
                 ],
-              )
+              ),
+              if (isPhoto)
+                const Icon(Icons.photo, size: 18, color: Colors.grey),
             ],
           )
         ]),
@@ -305,8 +323,6 @@ class _DataItem extends StatelessWidget {
 }
 
 class _NewTag extends StatelessWidget {
-  const _NewTag({super.key});
-
   @override
   Widget build(BuildContext context) {
     final List<String> typeTag = [
@@ -330,7 +346,7 @@ class _NewTag extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16)),
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                       labelText: 'Nombre',
                     ),
