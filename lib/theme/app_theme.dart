@@ -74,16 +74,16 @@ class AppTheme {
     ),
 
     /// Define the text button theme.
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        backgroundColor: WidgetStateProperty.all<Color>(primaryColor),
-        foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
-      ),
-    ),
+    // textButtonTheme: TextButtonThemeData(
+    //   style: ButtonStyle(
+    //     shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+    //       RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(8),
+    //       ),
+    //     ),
+    //     backgroundColor: WidgetStateProperty.all<Color>(primaryColor),
+    //     foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+    //   ),
+    // ),
   );
 }

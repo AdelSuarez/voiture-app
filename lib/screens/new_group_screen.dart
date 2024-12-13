@@ -91,18 +91,7 @@ class NewGroupScreen extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: TextButton(
-              onPressed: () {},
-              child: const Center(
-                child: Text(
-                  'Guardar',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
-          ),
+          CustomButtonSave(onPressed: () {}),
         ],
       ),
     );

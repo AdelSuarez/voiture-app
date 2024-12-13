@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manager_car/widgets/widgets.dart';
 
 const List<String> groups = <String>[
   'Ninguno',
@@ -58,9 +59,9 @@ class NewVehicleScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: height),
-                  _DropdownMenu(title: 'Tipo de Vehículo:', items: types),
+                  CustomDropdownMenu(title: 'Tipo de Vehículo:', items: types),
                   SizedBox(height: height),
-                  _DropdownMenu(
+                  CustomDropdownMenu(
                     title: 'Grupos:',
                     items: groups,
                   ),
@@ -68,62 +69,9 @@ class NewVehicleScreen extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: TextButton(
-              onPressed: () {},
-              child: const Center(
-                  child: Text(
-                'Guardar',
-                style: TextStyle(fontSize: 18),
-              )),
-            ),
-          ),
+          CustomButtonSave(onPressed: () {}),
         ],
       ),
-    );
-  }
-}
-
-class _DropdownMenu extends StatelessWidget {
-  final String title;
-  final List<String> items;
-
-  const _DropdownMenu({
-    required this.title,
-    required this.items,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(title),
-        const SizedBox(width: 15),
-        Expanded(
-          child: DropdownButtonFormField(
-            isExpanded: true,
-            dropdownColor: Colors.white,
-            value: items.first,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            items: items.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-            onChanged: (String? value) {
-              print(value);
-            },
-          ),
-        ),
-      ],
     );
   }
 }

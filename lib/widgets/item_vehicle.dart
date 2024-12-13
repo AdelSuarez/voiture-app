@@ -20,7 +20,7 @@ class ItemVehicle extends StatelessWidget {
   Widget build(BuildContext context) {
     final Map<String, Icon> icons = {
       'car': const Icon(
-        Icons.car_repair,
+        Icons.directions_car,
       ),
       'moto': const Icon(
         Icons.motorcycle_rounded,
