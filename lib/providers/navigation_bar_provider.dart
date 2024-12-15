@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manager_car/views/views.dart';
 
 class NavigationBarProvider extends ChangeNotifier {
   int _currentIndex = 0;
@@ -9,9 +10,16 @@ class NavigationBarProvider extends ChangeNotifier {
     1: ['Nuevo Grupo', 'new_group'],
   };
 
+  /// this is the list of views for the navigation bar
+  final List<Widget> _views = [
+    const HomeView(),
+    const GroupView(),
+  ];
+
   /// getters
   int get currentIndex => _currentIndex;
   Map<int, List> get routes => _routes;
+  List<Widget> get views => _views;
 
   /// Get the route and name of the route by index
   /// for the navigation bar
@@ -28,7 +36,7 @@ class NavigationBarProvider extends ChangeNotifier {
   ///-----------------------------------------------
 
   /// Set the index of the navigation bar
-  void setIndex(int index) {
+  set currentIndex(int index) {
     _currentIndex = index;
     notifyListeners();
   }

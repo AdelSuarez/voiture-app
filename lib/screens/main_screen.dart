@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:manager_car/views/views.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/providers.dart';
@@ -12,10 +11,6 @@ class MainScreen extends StatelessWidget {
     final navigationBarProvider = Provider.of<NavigationBarProvider>(context);
     final navigationCurrentIndex = navigationBarProvider.currentIndex;
 
-    final views = <Widget>[
-      const HomeView(),
-      const GroupView(),
-    ];
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -28,14 +23,6 @@ class MainScreen extends StatelessWidget {
           'VoitureApp',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        // bottom: PreferredSize(
-        //   preferredSize: const Size.fromHeight(1.0),
-        //   child: Container(
-        //     color: Colors.grey[300],
-        //     height: 1.0,
-        //   ),
-        // ),
-
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -47,7 +34,7 @@ class MainScreen extends StatelessWidget {
           _NavigationBar(navigationBarProvider: navigationBarProvider),
       body: IndexedStack(
         index: navigationBarProvider.currentIndex,
-        children: views,
+        children: navigationBarProvider.views,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -80,7 +67,7 @@ class _NavigationBar extends StatelessWidget {
         BottomNavigationBar(
           currentIndex: navigationBarProvider.currentIndex,
           onTap: (index) {
-            navigationBarProvider.setIndex(index);
+            navigationBarProvider.currentIndex = index;
           },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
