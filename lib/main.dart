@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manager_car/providers/providers.dart';
-import 'package:manager_car/screens/screens.dart';
+import 'package:manager_car/routes/app_routes.dart';
 import 'package:manager_car/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -35,18 +35,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'home',
-      routes: {
-        'home': (context) => const MainScreen(),
-        'new_vehicle': (context) => const NewVehicleScreen(),
-        'new_group': (context) => const NewGroupScreen(),
-        'about_vehicle': (context) => const AboutVehicleScreen(),
-        'about_group_vehicle': (context) => const AboutGroupCarScreen(),
-        'profile': (context) => const ProfileScreen(),
-        'log_screen': (context) => const LogScreen(),
-        'new_detail': (context) => const NewDetailScreen(),
-        'detail_screen': (context) => const DetailScreen(),
-      },
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.routes,
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.system,
     );

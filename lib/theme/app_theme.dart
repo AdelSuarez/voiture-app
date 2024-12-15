@@ -52,15 +52,11 @@ class AppTheme {
     /// Define the input decoration theme.
     inputDecorationTheme: InputDecorationTheme(
       focusedBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: ColorsCustom.primary),
+        borderSide: BorderSide(color: Colors.grey),
       ),
       hintStyle: const TextStyle(color: Colors.grey),
-      floatingLabelStyle: WidgetStateTextStyle.resolveWith(
-        (states) => TextStyle(
-          color: states.contains(WidgetState.focused)
-              ? ColorsCustom.primary
-              : Colors.grey,
-        ),
+      floatingLabelStyle: TextStyle(
+        color: Colors.grey,
       ),
     ),
 

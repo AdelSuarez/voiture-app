@@ -7,7 +7,14 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed('login');
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
