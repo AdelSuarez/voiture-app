@@ -24,52 +24,56 @@ class NewVehicleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Nuevo Vehículo'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.check),
+            onPressed: () {},
+          ),
+        ],
       ),
-      body: Column(
+      body: const Column(
         children: [
-          const Expanded(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Nombre',
+          SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Nombre',
+                  ),
+                ),
+                SizedBox(height: height),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelText: 'KM / HRS',
+                        ),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: height),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'KM / HRS',
-                          ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Año',
                         ),
                       ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Año',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: height),
-                  CustomDropdownMenu(title: 'Tipo de Vehículo:', items: types),
-                  SizedBox(height: height),
-                  CustomDropdownMenu(
-                    title: 'Grupos:',
-                    items: groups,
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: height),
+                CustomDropdownMenu(title: 'Tipo de Vehículo:', items: types),
+                SizedBox(height: height),
+                CustomDropdownMenu(
+                  title: 'Grupos:',
+                  items: groups,
+                ),
+              ],
             ),
           ),
-          CustomButtonSave(onPressed: () {}),
+          // CustomButtonSave(onPressed: () {}),
         ],
       ),
     );

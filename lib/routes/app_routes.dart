@@ -17,5 +17,6 @@ class AppRoutes {
     'log_screen': (context) => const LogScreen(),
     'new_detail': (context) => const NewDetailScreen(),
     'detail_screen': (context) => const DetailScreen(),
+    'document_screen': (context) => const DocumentScreen(),
   };
 }

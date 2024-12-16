@@ -50,11 +50,11 @@ class AppTheme {
     ),
 
     /// Define the input decoration theme.
-    inputDecorationTheme: InputDecorationTheme(
-      focusedBorder: const OutlineInputBorder(
+    inputDecorationTheme: const InputDecorationTheme(
+      focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),
       ),
-      hintStyle: const TextStyle(color: Colors.grey),
+      hintStyle: TextStyle(color: Colors.grey),
       floatingLabelStyle: TextStyle(
         color: Colors.grey,
       ),
@@ -67,6 +67,11 @@ class AppTheme {
 
     dialogTheme: const DialogTheme(
       backgroundColor: Colors.white,
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Colors.black, // Cambia el color del cursor
+      // selectionColor: Colors.red.shade100,
+      // selectionHandleColor: Colors.red,
     ),
 
     /// Define the text button theme.

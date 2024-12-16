@@ -1,3 +1,4 @@
+export 'package:manager_car/widgets/item_document.dart';
 export 'package:manager_car/widgets/footer_authentication.dart';
 export 'package:manager_car/widgets/buttom_authentication.dart';
 export 'package:manager_car/widgets/custom_textfield.dart';

@@ -21,7 +21,7 @@ class OtherAuthentication extends StatelessWidget {
             CustomButtonIcon(
                 title: 'google', onPressed: () {}, icon: 'google_icon'),
             CustomButtonIcon(
-                title: 'Github', onPressed: () {}, icon: 'github-mark'),
+                title: 'Github', onPressed: () {}, icon: 'github_icon'),
           ],
         ),
       ],

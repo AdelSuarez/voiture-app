@@ -65,38 +65,62 @@ class AboutVehicleScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Expanded(
+                      GestureDetector(
+                        onTap: () =>
+                            Navigator.pushNamed(context, 'about_group_vehicle'),
                         child: Row(
                           children: [
-                            Text('Grupo:',
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            SizedBox(width: 15),
-                            Expanded(
-                              child: Text(
-                                'Casa 14.5',
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.grey[200],
                               ),
+                              padding: const EdgeInsets.all(10),
+                              child: const Icon(
+                                Icons.account_tree_rounded,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Grupo:',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                SizedBox(width: 15),
+                                Text(
+                                  'Casa 14.5',
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      IconButton(
-                        style: ButtonStyle(
-                          padding: WidgetStateProperty.all(
-                            const EdgeInsets.all(0),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, 'document_screen');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.blue[300],
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          child: const Icon(
+                            Icons.attach_file,
+                            color: Colors.white,
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, 'about_group_vehicle');
-                        },
-                        icon: const Icon(Icons.visibility),
                       ),
                     ],
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 10),
             Container(
               color: Colors.grey[300],
               height: 1.0,
@@ -125,22 +149,23 @@ class AboutVehicleScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 40, // Altura fija para el ListView horizontal
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: chips.length,
-                    itemBuilder: (_, index) {
-                      return _TagStatus(
-                        title: chips[index][0],
-                        priority: chips[index][1],
-                      );
-                    },
+                if (chips.isNotEmpty)
+                  SizedBox(
+                    height: 40, // Altura fija para el ListView horizontal
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: chips.length,
+                      itemBuilder: (_, index) {
+                        return _TagStatus(
+                          title: chips[index][0],
+                          priority: chips[index][1],
+                        );
+                      },
+                    ),
                   ),
-                ),
               ],
             ),
-            const SizedBox(height: 15),
+            if (chips.isNotEmpty) const SizedBox(height: 15),
             Container(
               color: Colors.grey[300],
               height: 1.0,
@@ -148,49 +173,69 @@ class AboutVehicleScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  alignment: Alignment.centerLeft,
-                  child: const Text('Detalles'),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Detalles',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, 'new_detail');
+                          },
+                          icon: const Icon(Icons.add_circle_outline)),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-            const Column(
-              children: [
-                _OperationDetail(
+                const _OperationDetail(
                   title: 'Cambio de aceite asdasdadadasdads ',
                   date: '12/12/24',
                   type: 'servicio',
                   description:
                       'Exercitation aute anim do ea mollit officia in labore nostrud dis sit voluptate.Labore dolor pariatur laboris mollit dolore cupidatat culpa proident nisi laboris fugiat.',
                   isPhoto: true,
+                  isAttachment: false,
                 ),
-                _OperationDetail(
+                const _OperationDetail(
                   title: 'Reparacion de Motor',
                   date: '01/01/2025',
                   type: 'reparacion',
                   isPhoto: false,
+                  isAttachment: true,
                 ),
-                _OperationDetail(
+                const _OperationDetail(
                   title: 'Limpieza Interior',
                   date: '01/01/2025',
                   type: 'mantenimiento',
                   description:
                       'Exercitation aute anim do ea mollit officia in labore nostrud dis sit voluptate.Labore dolor pariatur laboris mollit dolore cupidatat culpa proident nisi laboris fugiat.',
                   isPhoto: false,
+                  isAttachment: false,
+                ),
+                const _OperationDetail(
+                  title: 'Revision de Documentos y seriales',
+                  date: '01/01/2025',
+                  type: 'otro',
+                  description:
+                      'Exercitation aute anim do ea mollit officia in labore nostrud dis sit voluptate.Labore dolor pariatur laboris mollit dolore cupidatat culpa proident nisi laboris fugiat.',
+                  isPhoto: true,
+                  isAttachment: true,
                 ),
               ],
             ),
+            const SizedBox(height: 15),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.pushNamed(context, 'new_detail');
-        },
-        label: const Text('Nuevo detalle'),
-        icon: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   onPressed: () {
+      //     Navigator.pushNamed(context, 'new_detail');
+      //   },
+      //   label: const Text('Nuevo detalle'),
+      //   icon: const Icon(Icons.add),
+      // ),
     );
   }
 }
@@ -230,6 +275,7 @@ class _OperationDetail extends StatelessWidget {
   final String? description;
   final String type;
   final bool isPhoto;
+  final bool isAttachment;
 
   const _OperationDetail({
     required this.title,
@@ -237,6 +283,7 @@ class _OperationDetail extends StatelessWidget {
     required this.type,
     this.description = '',
     required this.isPhoto,
+    required this.isAttachment,
   });
 
   @override
@@ -245,6 +292,7 @@ class _OperationDetail extends StatelessWidget {
       'reparacion': Icons.build,
       'servicio': Icons.car_crash,
       'mantenimiento': Icons.settings,
+      'otro': Icons.more_horiz,
     };
 
     return GestureDetector(
@@ -253,15 +301,15 @@ class _OperationDetail extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            border: Border.all(
-              width: 1,
-              color: Colors.grey,
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10),
-            )
-            //  borderRadius:                      )
-            ),
+          border: Border.all(
+            width: 1,
+            color: Colors.grey,
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10),
+          ),
+          //  borderRadius:                      )
+        ),
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         padding: const EdgeInsets.all(15),
         child: Column(children: [
@@ -292,8 +340,14 @@ class _OperationDetail extends StatelessWidget {
                   Text(type, style: const TextStyle(color: Colors.grey))
                 ],
               ),
-              if (isPhoto)
-                const Icon(Icons.photo, size: 18, color: Colors.grey),
+              Row(
+                children: [
+                  if (isAttachment)
+                    const Icon(Icons.attach_file, size: 18, color: Colors.grey),
+                  if (isPhoto)
+                    const Icon(Icons.photo, size: 18, color: Colors.grey),
+                ],
+              )
             ],
           )
         ]),
