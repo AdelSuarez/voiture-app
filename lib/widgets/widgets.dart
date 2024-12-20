@@ -1,11 +1,12 @@
-export 'package:manager_car/widgets/item_document.dart';
-export 'package:manager_car/widgets/footer_authentication.dart';
 export 'package:manager_car/widgets/buttom_authentication.dart';
-export 'package:manager_car/widgets/custom_textfield.dart';
-export 'package:manager_car/widgets/other_authentication.dart';
 export 'package:manager_car/widgets/custom_button_icon.dart';
-export 'package:manager_car/widgets/custom_dropdown_menu.dart';
 export 'package:manager_car/widgets/custom_button_save.dart';
 export 'package:manager_car/widgets/custom_button.dart';
+export 'package:manager_car/widgets/custom_dropdown_menu.dart';
+export 'package:manager_car/widgets/custom_textfield.dart';
 export 'package:manager_car/widgets/display_dialog.dart';
+export 'package:manager_car/widgets/footer_authentication.dart';
+export 'package:manager_car/widgets/item_document.dart';
 export 'package:manager_car/widgets/item_vehicle.dart';
+export 'package:manager_car/widgets/other_authentication.dart';
+export 'package:manager_car/widgets/title_action.dart';

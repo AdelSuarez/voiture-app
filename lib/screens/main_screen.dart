@@ -21,7 +21,9 @@ class MainScreen extends StatelessWidget {
         ),
         title: const Text(
           'VoitureApp',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
           IconButton(
@@ -69,6 +71,8 @@ class _NavigationBar extends StatelessWidget {
           onTap: (index) {
             navigationBarProvider.currentIndex = index;
           },
+          showUnselectedLabels: false,
+          // showSelectedLabels: false,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),

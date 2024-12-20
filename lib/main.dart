@@ -21,6 +21,8 @@ class AppState extends StatelessWidget {
           create: (_) => VehiclesProvider(),
           lazy: false,
         ),
+        ChangeNotifierProvider(create: (_) => LoginProvider(), lazy: false),
+        ChangeNotifierProvider(create: (_) => RegisterProvider(), lazy: false),
       ],
       child: const MyApp(),
     );

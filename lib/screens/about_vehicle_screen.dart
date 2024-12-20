@@ -127,27 +127,16 @@ class AboutVehicleScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Tags',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            showModalBottomSheet(
-                                backgroundColor: Colors.white,
-                                context: context,
-                                builder: (context) {
-                                  return _NewTag();
-                                });
-                          },
-                          icon: const Icon(Icons.add_circle_outline)),
-                    ],
-                  ),
+                TitleAction(
+                  title: 'Tags',
+                  onPressed: () {
+                    showModalBottomSheet(
+                        backgroundColor: Colors.white,
+                        context: context,
+                        builder: (context) {
+                          return _NewTag();
+                        });
+                  },
                 ),
                 if (chips.isNotEmpty)
                   SizedBox(
@@ -172,22 +161,11 @@ class AboutVehicleScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Detalles',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, 'new_detail');
-                          },
-                          icon: const Icon(Icons.add_circle_outline)),
-                    ],
-                  ),
+                TitleAction(
+                  title: 'Detalles',
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'new_detail');
+                  },
                 ),
                 const _OperationDetail(
                   title: 'Cambio de aceite asdasdadadasdads ',

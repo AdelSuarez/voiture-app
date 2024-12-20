@@ -6,6 +6,12 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, bool> listItem = {
+      // 'Manual del motor': true,
+      // 'Detalles de piezas': false,
+      // 'Costos': false,
+    };
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -35,85 +41,99 @@ class DetailScreen extends StatelessWidget {
             const Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget nunc nec nunc ultricies tincidunt. Nullam eget nunc nec nunc ultricies tincidunt.',
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Imagenes',
-                  style: TextStyle(fontSize: 14),
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'new_detail');
-                    },
-                    icon: const Icon(Icons.add_circle_outline)),
-              ],
+            TitleAction(
+              title: 'Lista',
+              onPressed: () {
+                print('List');
+              },
+              isPadding: false,
             ),
-            Container(
-                margin: const EdgeInsets.symmetric(vertical: 15),
-                child: const Icon(
-                  Icons.photo_library_rounded,
-                  size: 35,
+            if (listItem.isEmpty)
+              const Icon(
+                Icons.list,
+                size: 40,
+                color: Colors.grey,
+              ),
+            for (var item in listItem.entries)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                trailing: const Icon(
+                  Icons.cancel,
                   color: Colors.grey,
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Archivos',
-                  style: TextStyle(fontSize: 14),
                 ),
-                IconButton(
-                    onPressed: () {
-                      print('new document');
-                    },
-                    icon: const Icon(Icons.add_circle_outline)),
-              ],
-            ),
-            const Column(
-              children: [
-                ItemDocument(
-                  title: 'Manual del motor',
-                  documentIcon: 'pdf_icon',
-                  date: '12/12/24',
+                title: Text(item.key),
+                leading: Checkbox(
+                  value: item.value,
+                  onChanged: (value) {
+                    print(value);
+                  },
                 ),
-                ItemDocument(
-                  title: 'Detalles de piezas',
-                  documentIcon: 'word_icon',
-                  date: '12/12/24',
-                ),
-                ItemDocument(
-                  title: 'Costos',
-                  documentIcon: 'excel_icon',
-                  date: '12/12/24',
-                ),
-                ItemDocument(
-                  title: 'Costos',
-                  documentIcon: 'excel_icon',
-                  date: '12/12/24',
-                ),
-                ItemDocument(
-                  title: 'Costos',
-                  documentIcon: 'excel_icon',
-                  date: '12/12/24',
-                ),
-                ItemDocument(
-                  title: 'Costos',
-                  documentIcon: 'excel_icon',
-                  date: '12/12/24',
-                ),
-                ItemDocument(
-                  title: 'Costos',
-                  documentIcon: 'excel_icon',
-                  date: '12/12/24',
-                ),
-                ItemDocument(
-                  title: 'Costos',
-                  documentIcon: 'excel_icon',
-                  date: '12/12/24',
-                ),
-              ],
-            )
+              ),
+            // TitleAction(
+            //   title: 'Documentos',
+            //   onPressed: () {
+            //     print('Document');
+            //   },
+            //   isPadding: false,
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     const Text(
+            //       'Archivos',
+            //       style: TextStyle(fontSize: 14),
+            //     ),
+            //     IconButton(
+            //         onPressed: () {
+            //           print('new document');
+            //         },
+            //         icon: const Icon(Icons.add_circle_outline)),
+            //   ],
+            // ),
+            // const Column(
+            //   children: [
+            //     ItemDocument(
+            //       title: 'Manual del motor',
+            //       documentIcon: 'pdf_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Detalles de piezas',
+            //       documentIcon: 'word_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Costos',
+            //       documentIcon: 'excel_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Costos',
+            //       documentIcon: 'excel_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Costos',
+            //       documentIcon: 'excel_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Costos',
+            //       documentIcon: 'excel_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Costos',
+            //       documentIcon: 'excel_icon',
+            //       date: '12/12/24',
+            //     ),
+            //     ItemDocument(
+            //       title: 'Costos',
+            //       documentIcon: 'excel_icon',
+            //       date: '12/12/24',
+            //     ),
+            //   ],
+            // )
           ],
         ),
       ),

@@ -7,6 +7,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Perfil'),
         actions: [
           IconButton(
             icon: const Icon(Icons.exit_to_app),
