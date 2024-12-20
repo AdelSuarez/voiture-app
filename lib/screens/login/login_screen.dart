@@ -73,9 +73,10 @@ class LoginScreen extends StatelessWidget {
                       FocusScope.of(context).unfocus();
                       loginProvider.login(context);
                     }),
-                SizedBox(height: size.height * 0.05),
-                OtherAuthentication(size: size),
-                SizedBox(height: size.height * 0.04),
+                SizedBox(height: size.height * 0.20),
+                // SizedBox(height: size.height * 0.05),
+                // OtherAuthentication(size: size),
+                // SizedBox(height: size.height * 0.04),
                 FooterAuthentication(
                     message: '¿No tienes una cuenta?',
                     action: 'Regístrate',

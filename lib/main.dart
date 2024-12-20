@@ -1,10 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:manager_car/firebase_options.dart';
 import 'package:manager_car/providers/providers.dart';
 import 'package:manager_car/routes/app_routes.dart';
 import 'package:manager_car/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(const AppState());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const AppState());
+}
 
 class AppState extends StatelessWidget {
   const AppState({super.key});

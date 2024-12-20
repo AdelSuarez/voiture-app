@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:manager_car/api/authentication.dart';
+import 'package:manager_car/widgets/show_message.dart';
 
 class RegisterProvider extends ChangeNotifier {
   static bool _isObscure = true;
@@ -35,11 +37,10 @@ class RegisterProvider extends ChangeNotifier {
       _math = false;
       if (passwordController.text != confirmPasswordController.text) {
         /// Show snackbar if passwords do not match
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Center(child: Text('Las contraseñas no coinciden')),
-          ),
-        );
+        showMessage(
+            context: context,
+            message: 'Las contraseñas no coinciden',
+            color: Colors.red);
         toggleMath();
         return;
       } else if (passwordController.text == confirmPasswordController.text) {
@@ -47,8 +48,17 @@ class RegisterProvider extends ChangeNotifier {
         notifyListeners();
       }
 
-      print(
-          'Email: ${emailController.text} - Password: ${passwordController.text} - Confirm Password: ${confirmPasswordController.text}');
+      Authentication().registerUser(
+        email: emailController.text,
+        password: passwordController.text,
+        context: context,
+        onSuccess: () {
+          clearInputs();
+          Navigator.pushNamed(context, 'home');
+        },
+        showMessage: (message, color) =>
+            showMessage(context: context, message: message, color: color),
+      );
     }
   }
 

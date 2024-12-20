@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:manager_car/api/authentication.dart';
+import 'package:manager_car/widgets/show_message.dart';
 import 'package:manager_car/widgets/widgets.dart';
 
 class OtherAuthentication extends StatelessWidget {
@@ -19,9 +21,20 @@ class OtherAuthentication extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomButtonIcon(
-                title: 'google', onPressed: () {}, icon: 'google_icon'),
-            CustomButtonIcon(
-                title: 'Github', onPressed: () {}, icon: 'github_icon'),
+                title: 'google',
+                onPressed: () {
+                  Authentication().loginWithGoogle(
+                    context: context,
+                    onSuccess: () {
+                      Navigator.pushNamed(context, 'home');
+                    },
+                    showMessage: (message, color) => showMessage(
+                        context: context, message: message, color: color),
+                  );
+                },
+                icon: 'google_icon'),
+            // CustomButtonIcon(
+            //     title: 'Github', onPressed: () {}, icon: 'github_icon'),
           ],
         ),
       ],

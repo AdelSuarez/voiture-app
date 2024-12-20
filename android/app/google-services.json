@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502172939448",
+    "project_id": "voiture-53b86",
+    "storage_bucket": "voiture-53b86.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502172939448:android:93e839123e04461c93304d",
+        "android_client_info": {
+          "package_name": "com.voiture.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3EihfrgOrEEUkGUJdTkGnvXRo3Bwzms8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

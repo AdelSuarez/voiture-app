@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:manager_car/api/authentication.dart';
+import 'package:manager_car/widgets/show_message.dart';
 
 class LoginProvider extends ChangeNotifier {
   static bool _isObscure = true;
@@ -34,8 +36,16 @@ class LoginProvider extends ChangeNotifier {
 
   void login(BuildContext context) {
     if (formKey.currentState!.validate()) {
-      print(
-          'Email: ${emailController.text} - Password: ${passwordController.text}');
+      Authentication().loginUser(
+          email: emailController.text,
+          password: passwordController.text,
+          context: context,
+          onSuccess: () {
+            clearInputs();
+            Navigator.pushNamed(context, 'home');
+          },
+          showMessage: (message, color) =>
+              showMessage(context: context, message: message, color: color));
     }
   }
 }

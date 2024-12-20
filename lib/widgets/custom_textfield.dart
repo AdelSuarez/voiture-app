@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
           hintStyle: const TextStyle(color: Colors.grey),
         ),
         validator: (value) {
-          if (value == null) return 'Campo requerido';
+          if (value!.isEmpty) return 'Campo requerido';
           if (isPassword == true && value.length < 6) {
             return 'Contraseña muy corta';
           } else if (isPassword == false && !value.contains('@')) {
